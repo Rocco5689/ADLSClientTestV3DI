@@ -12,7 +12,9 @@ namespace AdlsClientTestV3DI
         static ClientCredential cc = new ClientCredential(Environment.GetEnvironmentVariable("ApplicationId"), Environment.GetEnvironmentVariable("AuthenticationKey"));
         static AuthenticationResult result = context.AcquireTokenAsync("https://management.azure.com/", cc).Result;
         static ServiceClientCredentials cred = new TokenCredentials(result.AccessToken);
-        public AdlsClient adlsClient = AdlsClient.CreateClient(Environment.GetEnvironmentVariable("adlsAccountName") + ".azuredatalakestore.net", cred);
+        static public AdlsClient adlsClient = AdlsClient.CreateClient(Environment.GetEnvironmentVariable("adlsAccountName") + ".azuredatalakestore.net", cred);
+        
+
 
         public AdlsClientClass()
         {
