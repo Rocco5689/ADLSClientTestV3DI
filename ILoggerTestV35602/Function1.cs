@@ -25,6 +25,8 @@ namespace AdlsClientTestV3DI
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 
+            _adlsClient.CreateDirectory("testDir");
+
             // Passing in the logger Initiated by the Function Scope
             WriteLogFunction("Test Log From Function!!!", log, context);
 
